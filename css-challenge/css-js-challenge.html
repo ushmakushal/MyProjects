@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+  <head>
+    <style>
+      .header {
+        position: absolute;
+        width:100%;
+        height:8%;
+        background-color: #A9A9A9;
+        top: 0;
+        right: 0;
+      }
+      .logo {
+        height:100%;
+        width:8%;
+        background-color: red;
+        float:left;
+      }
+      #imgLogo{
+        height: 100%;
+        width: 100%;
+      }
+      .headerText {
+        float:left;
+        height:100%;
+        line-height: 100%;
+        width:75%;
+        color:white;
+        text-align:left;
+        vertical-align: top;
+      }
+      #headText {
+        margin-left: 20px;
+      }
+      .settings {
+        float:right;
+        height: 100%;
+      }
+      #imgSettings {
+        height:100%;
+        cursor: pointer;
+      }
+      .container {
+        height: 100%;
+        width:100%;
+      }
+      .leftBar {
+        float:left;
+        position: absolute;
+        height:92%;
+        width: 8%;
+        background-color: black;
+        left:0;
+        top: 8%;
+      }
+      .leftBar span {
+        color: white;
+        font-size: smaller;
+        margin-left:40%;
+      }
+      .middleBar {
+        float: left;
+        height: 92%;
+        width: 25%;
+        background-color: #C0C0C0;
+        position: absolute;
+        top: 8%;
+        left: 8%;
+      }
+      .rightBar {
+        float: right;
+        height: 92%;
+        width: 68%;
+        background-color: #E8E8E8;
+        position: absolute;
+        top: 8%;
+        left:32%;
+      }
+      .whiteDiv {
+        height: 8%;
+        width:50%;
+        background-color: white;
+        margin: 35% auto 0;
+        border-radius: 5px;
+      }
+      .middleDiv {
+        height:12%;
+        width: 100%;
+        border: 1px solid white;
+        cursor: pointer;
+      }
+      .information {
+        display:none;
+        margin: 5%;
+        height:79%;
+        width:99%;
+      }
+      .information p{
+        height:15%;
+        width:90%;
+        overflow: hidden;
+      }
+      .infoHeader{
+        font-size: bigger;
+        font-weight: bold;
+        text-align: center;
+      }
+      .imageBlock {
+        width:50%;
+        padding: 50px;
+        background-color: gray;
+        margin-left: 15%;
+      }
+      .middleDiv:hover  .information{
+        display:block;
+      }
+      .footer {
+        position: absolute;
+        height: 13%;
+        width:100%;
+        background-color: white;
+        bottom:0;
+      }
+      #inpTypeHere {
+        margin: 2%;
+        height: 50%;
+        width:95%;
+        border: 2px solid #a9a9a9;
+      }
+    </style>
+  </head>
+  <body>
+      <div id="mainContainer">
+        <div id="header" class="header">
+            <div id="logo" class="logo">
+              <img id="imgLogo" alt="Logo Image" src="logo.png"/>
+            </div>
+            <div class="headerText">
+                <h2 id="headText">Hello World Header Here</h2>
+            </div>
+            <div id="settings" class="settings">
+              <img id="imgSettings" alt="Settings Image" src="settings.png"/>
+            </div>
+        </div>
+        <div id="container" class="container">
+          <div id="leftBar" class="leftBar">
+            <div id="whiteDiv1" class="whiteDiv">
+            </div>
+            <span>#1</span>
+            <div id="whiteDiv2" class="whiteDiv">
+            </div>
+            <span>#2</span>
+            <div id="whiteDiv3" class="whiteDiv">
+            </div>
+            <span>#3</span>
+          </div>
+          <div id="middleBar" class="middleBar">
+            <div id="middleDiv1" class="middleDiv">
+              <p>Some Text Here... </p>
+            </div>
+            <div id="middleDiv2" class="middleDiv">
+              <p>Some Text Here... </p>
+            </div>
+            <div id="middleDiv3" class="middleDiv">
+              <p>Some Text Here... </p>
+            </div>
+            <div id="middleDiv4" class="middleDiv">
+              <p>Some Text Here... </p>
+            </div>
+            <div id="middleDiv5" class="middleDiv">
+              <p>Some Text Here... </p>
+            </div>
+            <div id="middleDiv6" class="middleDiv">
+              <p>Some Text Here... </p>
+            </div>
+            <div id="middleDiv7" class="middleDiv">
+              <p>Some Text Here... </p>
+            </div>
+            <div id="middleDiv8" class="middleDiv">
+              <p>Some Text Here... </p>
+            </div>
+          </div>
+          <div id="rightBar" class="rightBar">
+            <div id="information" class="information">
+                <h3 class ="infoHeader">My Header</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                <div class="imageBlock"></div>
+                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+            </div>
+            <div id="footer" class="footer">
+              <input id="inpTypeHere" type="text" placeholder="     Type a message...">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        var titleDiv = document.getElementsByClassName('middleDiv');
+        var infoDIv = document.getElementById('information');
+
+        for(var i=0; i<titleDiv.length; i++)
+        {
+            titleDiv[i].addEventListener("mouseover", showInformation);
+            titleDiv[i].addEventListener("mouseout", hideInformation);
+        }
+
+        function showInformation()
+        {
+            infoDIv.style.display = "block";
+        }
+        function hideInformation()
+        {
+            infoDIv.style.display = "none";
+        }
+      </script>
+  </body>
+</html>
