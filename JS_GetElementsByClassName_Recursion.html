@@ -1,0 +1,50 @@
+<html>
+	<head>
+	</head>
+	
+	<body>
+	
+		<div id="div1" class="divClass">
+			<div id="div2" class="myClass">
+				<h3>Hello World</h3>
+			</div>
+			<p id="p1" class="myClass"></p>
+			<p id="p2" class="myClassTest"></p>
+			<p id="p3" class="myClass1 myClass2 myClass3"></p>
+			<div id="div3" class="myClass myClassTest"></div><br/><br/>
+			<div id="resultDiv"></div>
+			
+		</div>
+
+		<script>
+			function JS_GetElementsByClassName(className) {
+  				var bodyElements = document.body,
+      			matchElements  = [];
+
+				function findMatch(node) {
+    				for(var i = 0; i < node.childNodes.length; i++) {
+      					if(node.childNodes[i].childNodes.length > 0) {
+        					findMatch(node.childNodes[i]);
+      					}
+      
+    	  				if(node.childNodes[i].getAttribute && node.childNodes[i].getAttribute('class')) {
+        					if(node.childNodes[i].getAttribute('class').split(" ").indexOf(className) >= 0) {
+          						matchElements.push(node.childNodes[i]);
+        					}
+      					}
+    				}
+  				}
+  
+  				findMatch(bodyElements);
+  				return matchElements;
+			}
+			
+			var elementsOfClass = JS_GetElementsByClassName('myClass')
+			for(var i=0; i<elementsOfClass.length; i++)
+			{
+				document.getElementById("resultDiv").innerText += ("Node Name: " + elementsOfClass[i].nodeName + "\n ID: " + elementsOfClass[i].id + "\n\n ");
+			}
+	</script>
+	
+	</body>
+</html>
